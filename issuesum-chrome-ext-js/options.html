@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Issue Summarizer Extension Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="color"], input[type="number"] {
+            width: 100px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<img alt="Logo Issue Summarizer" src="images/icon48.png"><h1>Issue Summarizer Extension Options</h1>
+
+<label for="buttonColor">Button Color:</label>
+<input type="color" id="buttonColor" value="#ff0000"><br>
+
+<label for="buttonSize">Button Size:</label>
+<input type="number" id="buttonSize" min="10" max="50" value="20"><br>
+
+<label for="apiKeyChatGPT">ChatGPT API Key:</label>
+<input type="password" id="apiKeyChatGPT" value=""><br>
+
+<button id="saveButton">Save</button>
+
+<script src="options.js"></script>
+</body>
+</html>
