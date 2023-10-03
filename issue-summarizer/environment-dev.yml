@@ -1,0 +1,17 @@
+name: issue-summarizer
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+#      - pycodestyle
+#      - pylint
+      - pdoc3
+      - flake8
+      - Flask
+      - flask_cors
+      - requests
+      - openai
+
