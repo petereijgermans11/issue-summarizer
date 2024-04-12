@@ -1,15 +1,20 @@
 import os
 
-import openai
+from openai import OpenAI
 
+"""
+   //client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    """
+
+key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=key)
 
 
 def init_openai():
     """
     Initialize the openai client
     """
-    openai.api_key = os.getenv("OPENAI_API_KEY")
-    models = openai.Model.list()
+    models = client.models.list()
     print(f'Supported models: {models}')
 
 
@@ -32,6 +37,5 @@ def summarize(text, max_words=200, model="gpt-3.5-turbo", role="dev"):
                             f'Write the summary in a non-technical manner for a project manager.:"{text}"'
     else:
         raise ValueError(f'Unkown role {role}')
-    chat_completion = openai.ChatCompletion.create(model=model,
-                                                   messages=[{"role": "user", "content": summarization_request}])
-    return chat_completion['choices'][0]['message']['content']
+    chat_completion = client.chat.completions.create(model=model, messages=[{"role": "user", "content": summarization_request}])
+    return chat_completion.choices[0].message.content
